@@ -40,16 +40,15 @@
             <div class="col-md-12 col-xl-10">
                 <div class="card mask-custom border-0 rounded-4">
                     <div class="card-body p-4 text-white bg-last rounded-5">
-                        <!-- 
                         {%if form.errors%}
-                        {%for f in form%}
                         <div class="text-danger">
                             <ul>
+                                {%for f in form%}
                                 <li>{{f.errors}}</li>
+                                {%endfor%}
                             </ul>
                         </div>
-                        {%endfor%}
-                        {%endif%} -->
+                        {%endif%}
                         <p class="fs-4 fw-bold text-secondary mt-3">Todo List</p>
                         <form class="d-flex justify-content-center align-items-center mb-lg-4 " method="post"
                             action="">
