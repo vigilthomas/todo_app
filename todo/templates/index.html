@@ -3,9 +3,10 @@
 {%load static%}
 <style>
     body {
-        background: rgb(4, 10, 69);
-        background: radial-gradient(circle, rgba(4, 10, 69, 1) 0%, rgba(0, 0, 0, 1) 0%, rgba(4, 10, 69, 1) 83%);
-    }
+background-color: #3EECAC;
+background-image: linear-gradient(19deg, #3EECAC 0%, #EE74E1 100%);
+
+}
 
     img {
         width: fit-content;
@@ -34,19 +35,13 @@
 </style>
 
 <section class="vh-100 gradient-custom-2">
-    <div class="container py-5 h-100">
-        <div>
-            <h2 class="text-light text-center">Welcome <span class="text-uppercase">{{request.user}}</span> </h2>
-        </div>
-        <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="container mt-4">
+        <div class="row d-flex justify-content-center align-items-center">
             <div class="col-md-12 col-xl-10">
 
                 <div class="card mask-custom border-0 rounded-4">
-                    <div class="card-body p-4 text-white bg-last rounded-5">
-
-                        <div class="text-center pt-3 pb-2 mb-lg-5">
-                            <img src="{%static 'images/to-do.png'%}" style="width: fit-content;height: 50px;">
-                        </div>
+                    <div class="card-body text-white bg-last rounded-5">
+<!-- 
                         {%if form.errors%}
                         {%for f in form%}
                         <div class="text-danger">
@@ -55,7 +50,7 @@
                             </ul>
                         </div>
                         {%endfor%}
-                        {%endif%}
+                        {%endif%} -->
                         <form class="d-flex justify-content-center align-items-center mb-lg-4 " method="post" action="">
                             {%csrf_token%}
                             <div class="form-outline flex-fill d-flex justify-content-center align-items-center">
@@ -69,7 +64,7 @@
                         <!-- ---------TAsk---------- -->
                         <p class="fs-4 fw-bold text-secondary">Task</p> 
                         <p class="text-danger" style="font-size: 12px;">* To update task / Click on  task / Then click on pen icon</p>
-                        <ul class="alert alert-danger border-0 list-group mb-0 d-flex flex-column-reverse row">
+                        <ul class=" border-0 list-group d-flex flex-column-reverse row">
                             {%for t in todos%}
 
                             {%if t.status == False%}
@@ -110,7 +105,7 @@
                         <!-- ---------Completed Task---------- -->
 
                         <p class=" fs-5 fw-bold text-secondary">Completed</p>
-                        <ul class="alert alert-success list-group mb-0 d-flex flex-column-reverse border-0">
+                        <ul class="list-group mb-0 d-flex flex-column-reverse border-0">
                             {%for t in todos%}
                             {%if t.status == True%}
                             <li
