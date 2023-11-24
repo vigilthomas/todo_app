@@ -3,10 +3,10 @@
 {%load static%}
 <style>
     body {
-background-color: #3EECAC;
-background-image: linear-gradient(19deg, #3EECAC 0%, #EE74E1 100%);
+        background-color: #3EECAC;
+        background-image: linear-gradient(19deg, #3EECAC 0%, #EE74E1 100%);
 
-}
+    }
 
     img {
         width: fit-content;
@@ -35,13 +35,12 @@ background-image: linear-gradient(19deg, #3EECAC 0%, #EE74E1 100%);
 </style>
 
 <section class="vh-100 gradient-custom-2">
-    <div class="container mt-4">
+    <div class="container mt-4 ">
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-md-12 col-xl-10">
-
                 <div class="card mask-custom border-0 rounded-4">
-                    <div class="card-body text-white bg-last rounded-5">
-<!-- 
+                    <div class="card-body p-4 text-white bg-last rounded-5">
+                        <!-- 
                         {%if form.errors%}
                         {%for f in form%}
                         <div class="text-danger">
@@ -51,19 +50,23 @@ background-image: linear-gradient(19deg, #3EECAC 0%, #EE74E1 100%);
                         </div>
                         {%endfor%}
                         {%endif%} -->
-                        <form class="d-flex justify-content-center align-items-center mb-lg-4 " method="post" action="">
+                        <p class="fs-4 fw-bold text-secondary mt-3">Todo List</p>
+                        <form class="d-flex justify-content-center align-items-center mb-lg-4 " method="post"
+                            action="">
                             {%csrf_token%}
                             <div class="form-outline flex-fill d-flex justify-content-center align-items-center">
-                                <input type="text" id="form3" class="form-control form-control" name="name" id="name"
-                                    placeholder="Enter your things to do here......" required />
+                                <input type="text" id="form3"
+                                    class="form-control border-bottom border-0 border-dark rounded-0 " name="name"
+                                    id="name" placeholder="Enter your to do things here......" required />
 
                                 <button type="submit" class="btn btn-dark">Add</button>
                             </div><br><br>
                         </form>
 
                         <!-- ---------TAsk---------- -->
-                        <p class="fs-4 fw-bold text-secondary">Task</p> 
-                        <p class="text-danger" style="font-size: 12px;">* To update task / Click on  task / Then click on pen icon</p>
+                        <p class="fs-5 fw-bold text-secondary">Task</p>
+                        <p class="text-danger" style="font-size: 12px;">* To update task / Click on task / Then click on
+                            pen icon</p>
                         <ul class=" border-0 list-group d-flex flex-column-reverse row">
                             {%for t in todos%}
 
@@ -79,10 +82,12 @@ background-image: linear-gradient(19deg, #3EECAC 0%, #EE74E1 100%);
                                         <form action="{%url 'update' t.id %}" class=" " method="post">
                                             {%csrf_token%}
                                             <div class=" input-group">
-                                                <input class="form-control border-bottom border-dark border-0 rounded-0 mx-2 bg-transparent" type="text" name="name"
-                                                    value="{{t.name}}" />
+                                                <input
+                                                    class="form-control border-bottom border-dark border-0 rounded-0 mx-2 bg-transparent"
+                                                    type="text" name="name" value="{{t.name}}" />
                                                 <span>
-                                                    <button class="btn" type="submit"><i class="fas fa-pen text-dark"></i></button>
+                                                    <button class="btn" type="submit"><i
+                                                            class="fas fa-pen text-dark"></i></button>
                                                 </span>
 
                                             </div>
@@ -108,15 +113,14 @@ background-image: linear-gradient(19deg, #3EECAC 0%, #EE74E1 100%);
                         <ul class="list-group mb-0 d-flex flex-column-reverse border-0">
                             {%for t in todos%}
                             {%if t.status == True%}
-                            <li
-                                class=" d-flex justify-content-around align-items-center mb-2">
+                            <li class=" d-flex justify-content-around align-items-center mb-2">
                                 <div class="d-flex align-items-center text-center">
                                     <a href="{%url 'uncheck' t.id %}"><i
                                             class="fa-solid fa-square-check text-dark"></i></a>
                                     <form action="{%url 'update' t.id %}" class="d-inline-flex " method="post">
                                         {%csrf_token%}
-                                        <input class="form-control w-100  border-0 mx-2 bg-transparent" type="text" name="name"
-                                            value="{{t.name}}" readonly />
+                                        <input class="form-control w-100  border-0 mx-2 bg-transparent" type="text"
+                                            name="name" value="{{t.name}}" readonly />
                                     </form>
                                 </div>
                                 <div class="text-end">
